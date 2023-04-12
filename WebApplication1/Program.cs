@@ -1,4 +1,4 @@
-using WebApplication1.Models;
+using Pizzeria.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 

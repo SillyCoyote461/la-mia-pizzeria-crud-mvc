@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using WebApplication1.Models;
+using Microsoft.EntityFrameworkCore;
+using Pizzeria.Models;
 
-namespace WebApplication1.Controllers
+namespace Pizzeria.Controllers
 {
     public class PizzaController : Controller
     {
@@ -56,6 +57,58 @@ namespace WebApplication1.Controllers
             _context.Pizzas.Add(record);
             _context.SaveChanges();
 
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public IActionResult Update(int id)
+        {
+            using var _context = new PizzaContext();
+            Pizza pizzaToEdit = _context.Pizzas.Where(pizza => pizza.Id == id).FirstOrDefault();
+            if (pizzaToEdit == null)
+            {
+                return NotFound();
+            }
+
+            return View(pizzaToEdit);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Update(int id, Pizza data)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View("Update", data);
+            }
+            using var _context = new PizzaContext();
+            Pizza pizzaToEdit = _context.Pizzas.Where(pizza => pizza.Id == id).FirstOrDefault();
+
+            if(pizzaToEdit == null)
+            {
+                return NotFound();
+            }
+            
+            pizzaToEdit.Name = data.Name;
+            pizzaToEdit.Description = data.Description;
+            pizzaToEdit.Price = data.Price;
+            pizzaToEdit.Image = data.Image;
+
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Delete(int id)
+        {
+            using var _context = new PizzaContext();
+            Pizza pizzaToDelete = _context.Pizzas.Where(p => p.Id == id).FirstOrDefault();
+            if(pizzaToDelete == null)
+            {
+                return NotFound();
+            }
+
+            _context.Pizzas.Remove(pizzaToDelete);
+            _context.SaveChanges();
             return RedirectToAction("Index");
         }
     }

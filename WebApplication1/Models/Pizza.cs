@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using WebApplication1.Attributes;
+using Pizzeria.Attributes;
 
-namespace WebApplication1.Models
+namespace Pizzeria.Models
 {
     public class Pizza
     {
@@ -18,7 +18,7 @@ namespace WebApplication1.Models
 
 		[Required(ErrorMessage = "Please provide a pizza price.")]
         [GreaterThanZero]
-		public float Price { get; set; } = 0.0f;
+		public decimal Price { get; set; } = 0.0m;
 
 		[Required(ErrorMessage = "Please provide a pizza description.")]
         [StringLength(255)]

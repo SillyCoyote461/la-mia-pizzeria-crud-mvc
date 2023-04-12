@@ -1,4 +1,4 @@
-namespace WebApplication1.Models
+namespace Pizzeria.Models
 {
     public class ErrorViewModel
     {

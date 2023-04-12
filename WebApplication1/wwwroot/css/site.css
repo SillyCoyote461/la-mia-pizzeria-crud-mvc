@@ -114,3 +114,24 @@ footer{
     color: red;
     font-size: small;
 }
+
+.details{
+    background-color: steelblue;
+}
+
+.update{
+    background-color:green;
+}
+
+.delete{
+    background-color: darkred;
+}
+
+.btn {
+    font-weight: bold;
+    border: 1px solid black;
+    border-radius: 6px;
+    padding: 2px 7px;
+    color: snow;
+    margin: 8px 5px;
+}

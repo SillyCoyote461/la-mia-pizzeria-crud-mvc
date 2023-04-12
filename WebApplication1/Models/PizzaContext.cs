@@ -2,7 +2,7 @@
 using System.Linq;
 
 
-namespace WebApplication1.Models
+namespace Pizzeria.Models
 {
     public class PizzaContext : DbContext
     {
@@ -23,28 +23,28 @@ namespace WebApplication1.Models
                         Image = "https://picsum.photos/200",
                         Name = "Margherita",
                         Description = "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia quis est adipisci incidunt rem nostrum ipsam fuga ratione tempora eveniet!",
-                        Price = 4.5f
+                        Price = 4.5m
                     },
                     new Pizza
                     {
                         Image = "https://picsum.photos/200",
                         Name = "Diavola",
                         Description = "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia quis est adipisci incidunt rem nostrum ipsam fuga ratione tempora eveniet!",
-                        Price = 5.5f
+                        Price = 5.5m
                     },
                     new Pizza
                     {
                         Image = "https://picsum.photos/200",
                         Name = "San Daniele",
                         Description = "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia quis est adipisci incidunt rem nostrum ipsam fuga ratione tempora eveniet!",
-                        Price = 6f
+                        Price = 6m
                     },
                     new Pizza
                     {
                         Image = "https://picsum.photos/200",
                         Name = "Quattro stagioni",
                         Description = "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia quis est adipisci incidunt rem nostrum ipsam fuga ratione tempora eveniet!",
-                        Price = 6f
+                        Price = 6m
                     }
 
                 };
