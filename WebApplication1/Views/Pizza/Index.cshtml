@@ -1,0 +1,35 @@
+﻿@model Pizza[]
+
+@{
+    ViewData["Title"] = "Home Page";
+    var pizzas = Model;
+}
+
+            
+<main>
+    <nav>
+        <a href="@Url.Action("Create", "Pizza")"> Add pizza</a>
+    </nav>
+
+    <div class="container">
+        @*pizza container*@
+        <div class="flex">
+
+            @*pizza cards*@
+            @foreach(var pizza in pizzas)
+            {
+                <a href="@Url.Action("Details", "Pizza", new {Id = pizza.Id})" class="card">
+                    <div class="w-100">
+                        <img src="@pizza.Image">
+                    </div>
+                    <div class="card-description">
+                        <h3 class="title"> @pizza.Name </h3>
+                        <p>Prezzo: @pizza.Price€</p>
+                        <p>@pizza.Description</p>
+                    </div>
+                </a>
+            }
+
+        </div>
+    </div>
+</main>

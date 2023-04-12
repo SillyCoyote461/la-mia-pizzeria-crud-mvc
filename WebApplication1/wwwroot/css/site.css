@@ -1,0 +1,116 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    width: 100%;
+    min-height: 100vh;
+}
+
+header {
+    background-color: lightgray;
+    height: 45px;
+    border-bottom: 1px solid gray;
+}
+
+a {
+    text-decoration: none;
+    color: floralwhite;
+}
+
+nav{
+    height: 30px;
+    width: 80%;
+    margin: auto;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 20px
+}
+
+nav > a{
+    height: 80%;
+    font-weight: bold;
+    border: 1px solid black;
+    border-radius: 6px;
+    padding: 2px 7px;
+    color: snow;
+    background-color: steelblue;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    padding: 20px 0;
+}
+
+.title {
+    text-align: center;
+    padding-bottom: 10px;
+
+}
+
+.flex {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.card {
+    border: 1px solid black;
+    border-radius: 8px;
+    flex-basis: 22%;
+    padding-bottom: 5px;
+    text-decoration: none;
+    color: black;
+}
+
+.card img {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    width: 100%;
+}
+
+.card-description {
+    padding: 0 5px;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+footer{
+    border-top: 1px solid lightgray;
+    position: fixed;
+    bottom:0;
+    height: 60px;
+    padding: 10px 200px
+}
+
+.flex-detail{
+    display:flex;
+    justify-content:space-between;
+}
+
+.flex-detail > *{
+    width:45%
+}
+
+.form-field {
+    display: grid;
+    gap: 4px;
+    min-width: 400px;
+}
+
+.form-field textarea {
+    resize: vertical;
+}
+.text.error {
+    color: red;
+    font-size: small;
+}
