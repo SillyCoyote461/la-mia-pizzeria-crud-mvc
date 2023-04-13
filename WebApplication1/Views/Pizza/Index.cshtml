@@ -7,32 +7,32 @@
 
             
 <main>
-    <nav>
-        <a href="@Url.Action("Create", "Pizza")"> Add pizza</a>
-    </nav>
+    <div class="my-2">
+        <a class="btn btn-success" href="@Url.Action("Create", "Pizza")"> Add pizza</a>
+    </div>
 
-    <div class="container">
+    <div class=" x">
         @*pizza container*@
-        <div class="flex">
+        <div class="d-flex justify-content-evenly flex-wrap">
 
             @*pizza cards*@
             @foreach(var pizza in pizzas)
             {
-                <div  class="card">
-                    <div class="w-100">
-                        <img src="@pizza.Image">
+                <div class="card mb-5 bg-black bg-opacity-10" style="width: 18rem;">
+                    <img src="@pizza.Image" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">@pizza.Name</h5>
+                        <p class="card-text">@pizza.Description</p>
                     </div>
-                    <div class="card-description">
-                        <h3 class="title"> @pizza.Name </h3>
-                        <p>Prezzo: @pizza.Price€</p>
-                        <p>@pizza.Description</p>
+                    <div class="card-body">
+                        <p class="m-0"><b>Prezzo: </b> @pizza.Price €</p>
                     </div>
-                    <div>
-                        <a href="@Url.Action("Details", "Pizza", new {Id = pizza.Id})" class="btn details">Details</a>
-                        <a href="@Url.Action("Update", "Pizza", new {Id = pizza.Id})" class="btn update">Update</a>
-                        <form asp-controller="Pizza" asp-action="Delete" asp-route-id="@pizza.Id" method="post">
+                    <div class="card-body">
+                        <a href="@Url.Action("Details", "Pizza", new {Id = pizza.Id})" class="btn btn-primary">Details</a>
+                        <a href="@Url.Action("Update", "Pizza", new {Id = pizza.Id})" class="btn btn-success">Update</a>
+                        <form asp-controller="Pizza" asp-action="Delete" asp-route-id="@pizza.Id" method="post" class="btn btn-danger">
                             @Html.AntiForgeryToken()
-                            <button type="submit" class="btn delete">
+                            <button type="submit" class="border-0 bg-transparent">
                                 Delete
                             </button>
                         </form>
