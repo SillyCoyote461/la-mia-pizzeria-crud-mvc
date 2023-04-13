@@ -27,5 +27,7 @@ namespace Pizzeria.Models
         [Required(ErrorMessage = "Please provide an image.")]
         public string Image { get; set; } = string.Empty;
 
+        public int? CategoryId { get; set; }
+        public Category? Category { get; set; }
     }
 }
