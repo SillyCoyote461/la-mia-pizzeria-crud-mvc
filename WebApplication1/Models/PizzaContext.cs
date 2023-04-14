@@ -8,6 +8,7 @@ namespace Pizzeria.Models
     {
         public DbSet<Pizza> Pizzas { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Ingredient> Ingredients { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Data Source=localhost;Initial Catalog=pizzadb;Integrated Security=True;TrustServerCertificate=True");
@@ -82,6 +83,45 @@ namespace Pizzeria.Models
                 Categories.AddRange(seed);
                 SaveChanges();
 			}
+
+            //Ingredients seeder
+            if (!Ingredients.Any())
+            {
+                var seed = new Ingredient[]
+                {
+                    new Ingredient
+                    {
+                        Name = "Mozzarella"
+                    },
+                    new Ingredient
+                    {
+                        Name = "Prosciutto"
+                    },
+                    new Ingredient
+                    {
+                        Name = "Funghi Porcini"
+                    },
+                    new Ingredient
+                    {
+                        Name = "Funghi"
+                    },
+                    new Ingredient
+                    {
+                        Name = "Sardine"
+                    },
+                    new Ingredient
+                    {
+                        Name = "Burrata"
+                    },
+                    new Ingredient
+                    {
+                        Name = "Bufala"
+                    }
+                };
+                Ingredients.AddRange(seed);
+                SaveChanges();
+            }
+
         }
 
     }

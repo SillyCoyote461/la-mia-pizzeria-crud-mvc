@@ -7,7 +7,7 @@ namespace Pizzeria.Models
     {
         public Pizza()
         {
-
+            Ingredients = new List<Ingredient>();
         }
 
         public int Id { get; set; }
@@ -29,5 +29,6 @@ namespace Pizzeria.Models
 
         public int? CategoryId { get; set; }
         public Category? Category { get; set; }
+        public List<Ingredient>? Ingredients { get; set;}
     }
 }

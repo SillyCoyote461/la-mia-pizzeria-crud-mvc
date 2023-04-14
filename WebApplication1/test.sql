@@ -1,2 +1,2 @@
 ﻿SELECT *
-FROM Pizzas
+FROM IngredientPizza

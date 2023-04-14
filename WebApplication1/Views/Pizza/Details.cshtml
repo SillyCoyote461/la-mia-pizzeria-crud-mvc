@@ -11,7 +11,28 @@
         <div>
             <p><b>Descrizione: </b>@pizza.Description</p>
             <p><b>Prezzo: </b>@pizza.Price €</p>
-            <p><b>Prezzo: </b>@pizza.Category.Name</p>
+            @if (pizza.Category != null)
+            {
+                <p><b>Categoria: </b>@pizza.Category.Name</p>
+            }
+            @if (pizza.Ingredients.Count() != 0)
+            {
+                <p>
+                    <b>Ingredienti: </b>
+                    @for (int i = 0; i < pizza.Ingredients.Count(); i++)
+                    {
+                        if(i < pizza.Ingredients.Count() - 1)
+                        {
+                            <text> @pizza.Ingredients[i].Name, </text>
+                        }
+                        else
+                        {
+                            <text> @pizza.Ingredients[i].Name. </text>
+                        }
+                    }
+                </p>
+
+            }
 
         </div>
     </div>
