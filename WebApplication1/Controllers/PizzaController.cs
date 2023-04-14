@@ -133,6 +133,8 @@ namespace Pizzeria.Controllers
                     listIngredients.Add(new SelectListItem() { Text = ing.Name, Value = ing.Id.ToString() });
                 }
                 data.Ingredients = listIngredients;
+                data.Pizza.Id = id;
+
                 return View("Update", data);
             }
 
