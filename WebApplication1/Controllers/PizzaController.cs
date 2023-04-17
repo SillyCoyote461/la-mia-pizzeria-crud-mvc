@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Pizzeria.Migrations;
@@ -32,8 +33,8 @@ namespace Pizzeria.Controllers
             return View(pizza);
         }
 
+        [Authorize(Roles = "ADMIN")]
         [HttpGet]
-
         public IActionResult Create()
         {
             using (PizzaContext _context = new PizzaContext())
@@ -55,6 +56,7 @@ namespace Pizzeria.Controllers
         }
 
 
+        [Authorize(Roles = "ADMIN")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create( PizzaFormModel data )
@@ -88,6 +90,7 @@ namespace Pizzeria.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize(Roles = "ADMIN")]
         [HttpGet]
         public IActionResult Update(int id)
         {
@@ -117,6 +120,7 @@ namespace Pizzeria.Controllers
 			return View(formModel);
         }
 
+        [Authorize(Roles = "ADMIN")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Update(int id, PizzaFormModel data)
@@ -167,6 +171,7 @@ namespace Pizzeria.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize(Roles = "ADMIN")]
         public IActionResult Delete(int id)
         {
             using var _context = new PizzaContext();

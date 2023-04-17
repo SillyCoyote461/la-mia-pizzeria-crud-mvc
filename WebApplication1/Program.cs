@@ -1,6 +1,14 @@
 using Pizzeria.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<PizzaContext>();
+
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
+    .AddRoles<IdentityRole>()
+    .AddEntityFrameworkStores<PizzaContext>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -16,16 +24,20 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
 app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Pizza}/{action=Index}/{id?}");
 
-using (var context = new PizzaContext()) context.Seed();
+app.MapRazorPages();
+
+using (PizzaContext context = new PizzaContext()) context.Seed();
 
 app.Run();

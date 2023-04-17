@@ -1,10 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System.Linq;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace Pizzeria.Models
 {
-    public class PizzaContext : DbContext
+    public class PizzaContext : IdentityDbContext<IdentityUser>
     {
         public DbSet<Pizza> Pizzas { get; set; }
         public DbSet<Category> Categories { get; set; }
@@ -121,7 +122,6 @@ namespace Pizzeria.Models
                 Ingredients.AddRange(seed);
                 SaveChanges();
             }
-
         }
 
     }
